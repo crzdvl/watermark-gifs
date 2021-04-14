@@ -1,0 +1,48 @@
+{
+  "name": "server-for-resizing-or-cropping-images",
+  "version": "1.0.0",
+  "description": "Node.js server for resizing or cropping images, which also store operations history.",
+  "main": "./src/server/index.js",
+  "scripts": {
+    "test": "mocha --timeout 3000 ./__test__/index",
+    "start": "node ./src/server/index.js"
+  },
+  "author": "Viktoria Grechukha",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "17.1.1",
+    "body-parser": "^1.19.0",
+    "compression": "1.7.4",
+    "cookie-parser": "1.4.5",
+    "cors": "2.8.5",
+    "csurf": "1.11.0",
+    "dotenv": "8.2.0",
+    "editorconfig": "0.15.3",
+    "ejs": "3.1.5",
+    "express": "4.17.1",
+    "express-session": "1.17.1",
+    "fs-extra": "9.1.0",
+    "gifwrap": "^0.9.2",
+    "gm": "1.23.1",
+    "got": "11.8.2",
+    "helmet": "4.1.1",
+    "joi": "17.4.0",
+    "jsonwebtoken": "8.5.1",
+    "node-cron": "3.0.0",
+    "skeleton": "0.1.2"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.11.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.3.1",
+    "prettier": "2.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
