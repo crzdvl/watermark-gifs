@@ -22,8 +22,8 @@
   <body>
     <div class="section">
       <div class="container" style="margin-top: 5%; text-align: center">
-        <% if (message) {%>
-        <h5 style="color: red"><%= message %></h5>
+        <% if (messages.error) {%>
+        <h5 style="color: red"><%= messages.error %></h5>
         <% } %>
         <form
           action="/v1/searchGiphs"
@@ -37,7 +37,7 @@
             type="text"
             name="query"
             value="<%= query %>"
-            required
+            
           />
 
           <select id="selectList" name="watermark">

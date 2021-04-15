@@ -7,10 +7,8 @@ const middleware = (schema) => (req, res, next) => {
   if (valid) {
     next();
   } else {
-    const { details } = error;
-    const message = details.map((i) => i.message).join(',');
-
-    throw new ValidationError(message);
+    req.flash('error', 'Please provide your query.');
+    res.redirect('/v1/searchGiphsPage');
   }
 };
 

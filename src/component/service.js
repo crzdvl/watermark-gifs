@@ -16,22 +16,25 @@ async function get10UrlGiphs(search) {
     },
   }).json();
 
-  const result = await data.map((giph) => giph.images.downsized_medium.url);
+  const result = await data.map((giph) => ({
+    id: giph.id,
+    url: giph.images.downsized_medium.url,
+  }));
 
   return result;
 }
 
-function downloadGiphsInStore(urls) {
+function downloadGiphsInStore(giphs) {
   return Promise.all(
-    urls.map(async (url) => {
-      const dateNow = Date.now();
+    giphs.map(async (giph) => {
+      const nameOfFile = `${Date.now()}-${giph.id}`;
 
       await pipeline(
-        got.stream(url),
-        fs.createWriteStream(`./src/public/store/${dateNow}.gif`),
+        got.stream(giph),
+        fs.createWriteStream(`./src/public/store/${nameOfFile}.gif`),
       );
 
-      return dateNow;
+      return nameOfFile;
     }),
   );
 }
